@@ -65,6 +65,11 @@ public class Controler implements ActionListener{
         
         // Se agregan los ecuchas
         pLogin.btContaseña.addActionListener(this);
+        pSet.btAceptar.addActionListener(this);
+        pOp.btCobrar.addActionListener(this);
+        pOp.btIngresar.addActionListener(this);
+        pOp.btReinicio.addActionListener(this);
+        // Fin escuchas
     }
 
     @Override
@@ -77,10 +82,29 @@ public class Controler implements ActionListener{
                 view.MainPanel.add(pSet, BorderLayout.CENTER);
                 view.MainPanel.revalidate();
                 view.MainPanel.repaint();
-            
             }
             // Exepción aquí
         }
+        
         // Fin eventos del panel LogIn
+        
+        // Eventos del Panel Set
+        if(e.getSource() == pSet.btAceptar){
+            
+            view.MainPanel.removeAll();
+            view.MainPanel.add(pOp, BorderLayout.CENTER);
+            view.MainPanel.revalidate();
+            view.MainPanel.repaint();
+        
+        }
+        
+        if(e.getSource() == pOp.btReinicio){
+            view.MainPanel.removeAll();
+            view.MainPanel.add(pSet, BorderLayout.CENTER);
+            view.MainPanel.revalidate();
+            view.MainPanel.repaint();
+        }
+        
+        // Fin eventos del panel Set
     }
 }

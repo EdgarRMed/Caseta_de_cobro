@@ -2,11 +2,10 @@ package Model;
 
 public abstract class Transporte {
     protected int entradaKm;
-    protected String placa, numeroSerie;
+    protected String placa;
 
-    public Transporte(String placa, String numeroSerie) {
+    public Transporte(String placa) {
         this.placa = placa;
-        this.numeroSerie = numeroSerie;
     }
 
     public void setEntradaKm(int entradaKm) {

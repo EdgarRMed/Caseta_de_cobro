@@ -1,7 +1,7 @@
 package Model;
 
 public class Moto extends Transporte {
-    public Moto(int entradaKm, String placa, String numeroSerie) {
+    public Moto(String placa) {
         super(placa);
     }
 

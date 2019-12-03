@@ -6,7 +6,7 @@ public class Caseta {
     private ArrayList<Transporte> transportes;
     private int longitudCarretera, ubicacionCaseta;
     private double tarifa;
-    private final String password = "contraseña";
+    public final String password = "contraseña";
 
     public void agregarTransporte(Transporte t) {
         this.agregarTransporte(t, ubicacionCaseta);

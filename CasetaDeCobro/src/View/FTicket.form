@@ -165,7 +165,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lbRecorrido">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Kilometros recorridos:"/>
+            <Property name="text" type="java.lang.String" value="Tarifa por kilometro"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lbCobro">

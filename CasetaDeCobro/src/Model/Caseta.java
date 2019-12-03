@@ -3,9 +3,9 @@ package Model;
 import java.util.ArrayList;
 
 public class Caseta {
-    public ArrayList<Transporte> transportes;
+    public ArrayList<Transporte> transportes = new ArrayList();
     public int longitudCarretera, ubicacionCaseta;
-    private double tarifa;
+    public double tarifa;
     public final String password = "ps";
 
     public void agregarTransporte(Transporte t) {
@@ -23,13 +23,5 @@ public class Caseta {
         this.tarifa = tarifa;
     }
 
-    public double cobrarTransporte(String placa) {
-        for (Transporte t: transportes) {
-            if (t.getPlaca().equals(placa)) {
-                return t.calcularTarifa(tarifa, ubicacionCaseta);
-                //TODO: Hacer algo con cobro
-            }
-        }
-        return -1;
-    }
+  
 }

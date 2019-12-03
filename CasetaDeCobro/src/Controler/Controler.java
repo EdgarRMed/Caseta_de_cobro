@@ -6,7 +6,9 @@
 package Controler;
 
 import Model.Auto;
+import Model.Autobus;
 import Model.Caseta;
+import Model.Moto;
 import Model.Transporte;
 import View.FTicket;
 import View.MainView;
@@ -44,7 +46,7 @@ public class Controler implements ActionListener{
     
     public void start(){    // Se inicia la aplicación
        view.setTitle("Caseta");
-       view.setSize(400, 500);
+       view.setSize(280, 370);
        view.setLocationRelativeTo(null);
        view.setResizable(false);
        initComponents();
@@ -61,8 +63,8 @@ public class Controler implements ActionListener{
         // Fin instancia de componentes 
         
         // Se agrea el panel principal al Frame
-        pLogin.setSize(200,500);
-        pLogin.setLocation(0,0);
+        //pLogin.setSize(200,500);
+        //pLogin.setLocation(0,0);
         view.MainPanel.removeAll();
         view.MainPanel.add(pLogin, BorderLayout.CENTER);
         view.MainPanel.revalidate();
@@ -83,6 +85,7 @@ public class Controler implements ActionListener{
         pagregaVehiculor.btMoto.addActionListener(this);
         pagregaVehiculor.btRegresar.addActionListener(this);
         pagregaVehiculor.cbUbicacion.addActionListener(this);
+        ticket.btAceptar.addActionListener(this);
         // Fin escuchas
     }
 
@@ -97,7 +100,9 @@ public class Controler implements ActionListener{
                 view.MainPanel.removeAll();
                 view.MainPanel.add(pSet, BorderLayout.CENTER);
                 view.MainPanel.revalidate();
+                view.setSize(400, 400);
                 view.MainPanel.repaint();
+                
             }
             // Exepción contraseña incorrecta 
         }
@@ -166,20 +171,20 @@ public class Controler implements ActionListener{
         if(e.getSource() == pagregaVehiculor.btMoto){
             // Excepción aquí
             if(pagregaVehiculor.cbUbicacion.isSelected()){
-                model.agregarTransporte(new Auto(pagregaVehiculor.txPlaca.getText()));
+                model.agregarTransporte(new Moto(pagregaVehiculor.txPlaca.getText()));
             }
             else
-                model.agregarTransporte(new Auto(pagregaVehiculor.txPlaca.getText()),
+                model.agregarTransporte(new Moto(pagregaVehiculor.txPlaca.getText()),
                                         Integer.valueOf(pagregaVehiculor.txEntrada.getText()));
         }
         
         if(e.getSource() == pagregaVehiculor.btCamion){
             // Excepción aquí
             if(pagregaVehiculor.cbUbicacion.isSelected()){
-                model.agregarTransporte(new Auto(pagregaVehiculor.txPlaca.getText()));
+                model.agregarTransporte(new Autobus(pagregaVehiculor.txPlaca.getText()));
             }
             else
-                model.agregarTransporte(new Auto(pagregaVehiculor.txPlaca.getText()),
+                model.agregarTransporte(new Autobus(pagregaVehiculor.txPlaca.getText()),
                                         Integer.valueOf(pagregaVehiculor.txEntrada.getText()));
         }
         
@@ -216,17 +221,33 @@ public class Controler implements ActionListener{
        }
        
        if(e.getSource() == pCobrar.btAceptar){
-           model.cobrarTransporte(pCobrar.txPlaca.getText());
+           
+           //model.cobrarTransporte(pCobrar.txPlaca.getText());
            for(Transporte t: model.transportes){
-               if(pCobrar.txPlaca.equals(t.getPlaca())){
+               if(pCobrar.txPlaca.getText().equals(t.getPlaca())){
+                   int index = model.transportes.indexOf(t);
+                   System.out.println("Lo enconto");
                    ticket.txPlaca.setText(t.getPlaca());
                    ticket.txEntrada.setText(String.valueOf(t.getEntradaKm()));
+                   ticket.txKilometros.setText(String.valueOf(model.tarifa));
+                   if(pCobrar.cbUbicacion.isSelected()){
                    ticket.txSalida.setText(String.valueOf(model.ubicacionCaseta));
-                   //ticket.txKilometros.setText(String.valueOf(t.));
+                   ticket.txCobro.setText(String.valueOf(t.calcularTarifa(model.tarifa, model.ubicacionCaseta)));
+                   }
+                   else{
+                   ticket.txSalida.setText(String.valueOf(pCobrar.txSalida.getText()));
+                   ticket.txCobro.setText(String.valueOf(t.calcularTarifa(model.tarifa,Integer.valueOf(pCobrar.txSalida.getText()))));
+                   }
+                   ticket.setVisible(true);
+                   
+                   model.transportes.remove(t);
+                   break;
                }
            }
        }
         // Fin eventos del panel cobrar
+        if(e.getSource() == ticket.btAceptar)
+            ticket.dispose();
 
         
     }

@@ -32,9 +32,11 @@ public class Plogin extends javax.swing.JPanel {
         txContraseña = new javax.swing.JPasswordField();
         btContaseña = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(102, 102, 102));
+
         LIcono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/descarga.png"))); // NOI18N
 
-        LContraseña.setForeground(new java.awt.Color(24, 14, 14));
+        LContraseña.setForeground(new java.awt.Color(254, 254, 254));
         LContraseña.setText("Ingrese contraseña: ");
 
         btContaseña.setText("Ingresar");
@@ -52,11 +54,12 @@ public class Plogin extends javax.swing.JPanel {
                         .addComponent(btContaseña))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(22, 22, 22)
-                        .addComponent(LIcono))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(84, 84, 84)
-                        .addComponent(LContraseña)))
+                        .addComponent(LIcono)))
                 .addContainerGap(21, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(LContraseña)
+                .addGap(62, 62, 62))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

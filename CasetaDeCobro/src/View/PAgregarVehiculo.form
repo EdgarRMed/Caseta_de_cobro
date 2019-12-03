@@ -134,6 +134,9 @@
     </Component>
     <Component class="javax.swing.JCheckBox" name="cbUbicacion">
       <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="1" green="1" red="1" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Ingresar desde esta Caseta"/>
       </Properties>
       <Events>

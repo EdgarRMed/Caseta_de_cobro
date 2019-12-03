@@ -54,6 +54,7 @@ public class PAgregarVehiculo extends javax.swing.JPanel {
             }
         });
 
+        cbUbicacion.setForeground(new java.awt.Color(1, 1, 1));
         cbUbicacion.setText("Ingresar desde esta Caseta");
         cbUbicacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -35,6 +35,8 @@ public class Pcobrar extends javax.swing.JPanel {
         btRegresar = new javax.swing.JButton();
         btAceptar = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(102, 102, 102));
+
         lPlaca.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lPlaca.setForeground(new java.awt.Color(255, 255, 255));
         lPlaca.setText("Ingrese la placa del vehículo:");
@@ -43,6 +45,7 @@ public class Pcobrar extends javax.swing.JPanel {
         lSalida.setForeground(new java.awt.Color(255, 255, 255));
         lSalida.setText("Ingrese kilometro de salida:");
 
+        cbUbicacion.setForeground(new java.awt.Color(1, 1, 1));
         cbUbicacion.setText("Cobobrar en la Ubicación de esta caseta");
 
         btRegresar.setText("Cancelar/Regresar");

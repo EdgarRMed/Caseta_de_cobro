@@ -32,6 +32,8 @@ public class Pop extends javax.swing.JPanel {
         btCobrar = new javax.swing.JButton();
         btReinicio = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(102, 102, 102));
+
         lMensaje.setBackground(new java.awt.Color(254, 254, 254));
         lMensaje.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lMensaje.setForeground(new java.awt.Color(255, 255, 255));
@@ -59,17 +61,14 @@ public class Pop extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btCobrar, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(lMensaje)
-                        .addGap(77, 77, 77))))
+                .addComponent(btIngresar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btCobrar, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
+                .addGap(1, 1, 1))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(63, Short.MAX_VALUE)
+                .addComponent(lMensaje)
+                .addGap(77, 77, 77))
             .addGroup(layout.createSequentialGroup()
                 .addGap(82, 82, 82)
                 .addComponent(btReinicio)

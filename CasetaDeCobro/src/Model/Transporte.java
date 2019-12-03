@@ -20,5 +20,5 @@ public abstract class Transporte {
         return entradaKm;
     }
     
-    protected abstract double calcularTarifa(double tarifa, int salidaKm);
+    public abstract double calcularTarifa(double tarifa, int salidaKm);
 }

@@ -54,7 +54,7 @@ public class FTicket extends javax.swing.JFrame {
 
         lbSalida.setText("Kilometro de salida:");
 
-        lbRecorrido.setText("Kilometros recorridos:");
+        lbRecorrido.setText("Tarifa por kilometro");
 
         lbCobro.setText("Monto a pagar:");
 

@@ -2,7 +2,7 @@ package Model;
 
 public class Autobus extends Transporte {
     public Autobus(int entradaKm, String placa, String numeroSerie) {
-        super(placa, numeroSerie);
+        super(placa);
     }
 
     @Override

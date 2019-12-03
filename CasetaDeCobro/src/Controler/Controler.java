@@ -5,7 +5,10 @@
  */
 package Controler;
 
+import Model.Auto;
 import Model.Caseta;
+import Model.Transporte;
+import View.FTicket;
 import View.MainView;
 import View.PAgregarVehiculo;
 import View.Pcobrar;
@@ -15,6 +18,7 @@ import View.Pset;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import sun.security.krb5.internal.Ticket;
 
 /**
  *
@@ -30,6 +34,7 @@ public class Controler implements ActionListener{
     public Plogin pLogin;
     public Pop pOp;
     public Pset pSet;
+    public FTicket ticket;
     
     public Controler(MainView view, Caseta model){
     
@@ -38,7 +43,7 @@ public class Controler implements ActionListener{
     }
     
     public void start(){    // Se inicia la aplicación
-       view.setTitle("Graficador");
+       view.setTitle("Caseta");
        view.setSize(400, 500);
        view.setLocationRelativeTo(null);
        view.setResizable(false);
@@ -52,6 +57,7 @@ public class Controler implements ActionListener{
         pLogin = new Plogin();
         pOp = new Pop();
         pSet = new Pset();
+        ticket = new FTicket();
         // Fin instancia de componentes 
         
         // Se agrea el panel principal al Frame
@@ -67,13 +73,23 @@ public class Controler implements ActionListener{
         pLogin.btContaseña.addActionListener(this);
         pSet.btAceptar.addActionListener(this);
         pOp.btCobrar.addActionListener(this);
+        pCobrar.btRegresar.addActionListener(this);
+        pCobrar.cbUbicacion.addActionListener(this);
+        pCobrar.btAceptar.addActionListener(this);
         pOp.btIngresar.addActionListener(this);
         pOp.btReinicio.addActionListener(this);
+        pagregaVehiculor.btAuto.addActionListener(this);
+        pagregaVehiculor.btCamion.addActionListener(this);
+        pagregaVehiculor.btMoto.addActionListener(this);
+        pagregaVehiculor.btRegresar.addActionListener(this);
+        pagregaVehiculor.cbUbicacion.addActionListener(this);
         // Fin escuchas
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        
+        
         // Eventos del panel LogIn
         if(e.getSource() == pLogin.btContaseña){
             // Exepción aquí
@@ -83,10 +99,10 @@ public class Controler implements ActionListener{
                 view.MainPanel.revalidate();
                 view.MainPanel.repaint();
             }
-            // Exepción aquí
+            // Exepción contraseña incorrecta 
         }
-        
         // Fin eventos del panel LogIn
+
         
         // Eventos del Panel Set
         if(e.getSource() == pSet.btAceptar){
@@ -95,9 +111,15 @@ public class Controler implements ActionListener{
             view.MainPanel.add(pOp, BorderLayout.CENTER);
             view.MainPanel.revalidate();
             view.MainPanel.repaint();
+            model.setCaseta(Integer.valueOf(pSet.txLongitud.getText()),
+                            Integer.valueOf(pSet.txUbicacion.getText()),
+                            Integer.valueOf(pSet.txCobro.getText()));
         
-        }
+        } // Excepcion de campo faltante 
+        // Fin eventos del panel Set
         
+        
+        // Eventos del panel Pop
         if(e.getSource() == pOp.btReinicio){
             view.MainPanel.removeAll();
             view.MainPanel.add(pSet, BorderLayout.CENTER);
@@ -105,6 +127,109 @@ public class Controler implements ActionListener{
             view.MainPanel.repaint();
         }
         
-        // Fin eventos del panel Set
+        if(e.getSource() == pOp.btIngresar){
+            view.setSize(600, 390);
+            view.MainPanel.removeAll();
+            view.MainPanel.add(pagregaVehiculor, BorderLayout.CENTER);
+            view.MainPanel.revalidate();
+            view.MainPanel.repaint();
+        }
+        
+        if(e.getSource() == pOp.btCobrar){
+            view.setSize(600, 390);
+            view.MainPanel.removeAll();
+            view.MainPanel.add(pCobrar, BorderLayout.CENTER);
+            view.MainPanel.revalidate();
+            view.MainPanel.repaint();
+        }
+        // Fin eventos del panel Pop
+        
+        
+        // Eventos del panel agregar vehiculo
+        if(e.getSource() == pagregaVehiculor.btRegresar){
+            view.MainPanel.removeAll();
+            view.MainPanel.add(pOp, BorderLayout.CENTER);
+            view.MainPanel.revalidate();
+            view.MainPanel.repaint();
+        }
+        
+        if(e.getSource() == pagregaVehiculor.btAuto){
+            // Excepción aquí
+            if(pagregaVehiculor.cbUbicacion.isSelected()){
+                model.agregarTransporte(new Auto(pagregaVehiculor.txPlaca.getText()));
+            }
+            else
+                model.agregarTransporte(new Auto(pagregaVehiculor.txPlaca.getText()),
+                                        Integer.valueOf(pagregaVehiculor.txEntrada.getText()));
+        }
+        
+        if(e.getSource() == pagregaVehiculor.btMoto){
+            // Excepción aquí
+            if(pagregaVehiculor.cbUbicacion.isSelected()){
+                model.agregarTransporte(new Auto(pagregaVehiculor.txPlaca.getText()));
+            }
+            else
+                model.agregarTransporte(new Auto(pagregaVehiculor.txPlaca.getText()),
+                                        Integer.valueOf(pagregaVehiculor.txEntrada.getText()));
+        }
+        
+        if(e.getSource() == pagregaVehiculor.btCamion){
+            // Excepción aquí
+            if(pagregaVehiculor.cbUbicacion.isSelected()){
+                model.agregarTransporte(new Auto(pagregaVehiculor.txPlaca.getText()));
+            }
+            else
+                model.agregarTransporte(new Auto(pagregaVehiculor.txPlaca.getText()),
+                                        Integer.valueOf(pagregaVehiculor.txEntrada.getText()));
+        }
+        
+        if(e.getSource() == pagregaVehiculor.cbUbicacion){
+            if(pagregaVehiculor.cbUbicacion.isSelected()){
+               pagregaVehiculor.txEntrada.setText(null);
+               pagregaVehiculor.txEntrada.setEditable(false);
+            }
+            else{
+                pagregaVehiculor.txEntrada.setEditable(true);
+                pagregaVehiculor.txEntrada.setText(null);
+           }
+       }
+        // Fin eventos de agregar vehiculo
+        
+        
+        // Eventos del panel cobrar
+        if (e.getSource() == pCobrar.btRegresar){
+            view.MainPanel.removeAll();
+            view.MainPanel.add(pOp, BorderLayout.CENTER);
+            view.MainPanel.revalidate();
+            view.MainPanel.repaint();   
+        }
+        
+       if(e.getSource() == pCobrar.cbUbicacion){
+            if(pCobrar.cbUbicacion.isSelected()){
+               pCobrar.txSalida.setText(null);
+               pCobrar.txSalida.setEditable(false);
+            }
+            else{
+                pCobrar.txSalida.setEditable(true);
+                pCobrar.txSalida.setText(null);
+           }
+       }
+       
+       if(e.getSource() == pCobrar.btAceptar){
+           model.cobrarTransporte(pCobrar.txPlaca.getText());
+           for(Transporte t: model.transportes){
+               if(pCobrar.txPlaca.equals(t.getPlaca())){
+                   ticket.txPlaca.setText(t.getPlaca());
+                   ticket.txEntrada.setText(String.valueOf(t.getEntradaKm()));
+                   ticket.txSalida.setText(String.valueOf(model.ubicacionCaseta));
+                   //ticket.txKilometros.setText(String.valueOf(t.));
+               }
+           }
+       }
+        // Fin eventos del panel cobrar
+
+        
     }
+    
+    
 }

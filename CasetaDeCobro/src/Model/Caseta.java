@@ -3,8 +3,8 @@ package Model;
 import java.util.ArrayList;
 
 public class Caseta {
-    private ArrayList<Transporte> transportes;
-    private int longitudCarretera, ubicacionCaseta;
+    public ArrayList<Transporte> transportes;
+    public int longitudCarretera, ubicacionCaseta;
     private double tarifa;
     public final String password = "ps";
 

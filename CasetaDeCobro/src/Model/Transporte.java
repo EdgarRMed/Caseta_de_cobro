@@ -16,5 +16,9 @@ public abstract class Transporte {
         return placa;
     }
 
+    public int getEntradaKm() {
+        return entradaKm;
+    }
+    
     protected abstract double calcularTarifa(double tarifa, int salidaKm);
 }

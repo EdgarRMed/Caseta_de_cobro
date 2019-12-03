@@ -37,8 +37,6 @@ public class Plogin extends javax.swing.JPanel {
         LContraseña.setForeground(new java.awt.Color(24, 14, 14));
         LContraseña.setText("Ingrese contraseña: ");
 
-        txContraseña.setText("jPasswordField1");
-
         btContaseña.setText("Ingresar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

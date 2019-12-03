@@ -41,6 +41,7 @@ public class Controler implements ActionListener{
        view.setTitle("Graficador");
        view.setSize(400, 500);
        view.setLocationRelativeTo(null);
+       view.setResizable(false);
        initComponents();
     }
     
@@ -71,12 +72,15 @@ public class Controler implements ActionListener{
         // Eventos del panel LogIn
         if(e.getSource() == pLogin.btContaseña){
             // Exepción aquí
-            if(pLogin.txContraseña.getText() == model.password){
-            view.MainPanel.removeAll();
-            view.MainPanel.add(pSet, BorderLayout.CENTER);
-            view.MainPanel.revalidate();
-            view.MainPanel.repaint();
+            if(pLogin.txContraseña.getText().equals(model.password)){
+                view.MainPanel.removeAll();
+                view.MainPanel.add(pSet, BorderLayout.CENTER);
+                view.MainPanel.revalidate();
+                view.MainPanel.repaint();
+            
             }
+            // Exepción aquí
         }
+        // Fin eventos del panel LogIn
     }
 }

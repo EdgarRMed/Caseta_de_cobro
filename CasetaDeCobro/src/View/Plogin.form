@@ -74,9 +74,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JPasswordField" name="txContrase&#xf1;a">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jPasswordField1"/>
-      </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>

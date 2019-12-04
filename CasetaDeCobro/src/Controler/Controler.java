@@ -20,7 +20,7 @@ import View.Pset;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import sun.security.krb5.internal.Ticket;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -111,7 +111,7 @@ public class Controler implements ActionListener{
         
         // Eventos del Panel Set
         if(e.getSource() == pSet.btAceptar){
-            
+            view.setSize(360, 250);
             view.MainPanel.removeAll();
             view.MainPanel.add(pOp, BorderLayout.CENTER);
             view.MainPanel.revalidate();
@@ -126,6 +126,7 @@ public class Controler implements ActionListener{
         
         // Eventos del panel Pop
         if(e.getSource() == pOp.btReinicio){
+            view.setSize(400, 400);
             view.MainPanel.removeAll();
             view.MainPanel.add(pSet, BorderLayout.CENTER);
             view.MainPanel.revalidate();
@@ -133,7 +134,7 @@ public class Controler implements ActionListener{
         }
         
         if(e.getSource() == pOp.btIngresar){
-            view.setSize(600, 390);
+            view.setSize(600, 400);
             view.MainPanel.removeAll();
             view.MainPanel.add(pagregaVehiculor, BorderLayout.CENTER);
             view.MainPanel.revalidate();
@@ -152,6 +153,7 @@ public class Controler implements ActionListener{
         
         // Eventos del panel agregar vehiculo
         if(e.getSource() == pagregaVehiculor.btRegresar){
+            view.setSize(360, 250);
             view.MainPanel.removeAll();
             view.MainPanel.add(pOp, BorderLayout.CENTER);
             view.MainPanel.revalidate();
@@ -166,6 +168,7 @@ public class Controler implements ActionListener{
             else
                 model.agregarTransporte(new Auto(pagregaVehiculor.txPlaca.getText()),
                                         Integer.valueOf(pagregaVehiculor.txEntrada.getText()));
+            JOptionPane.showMessageDialog(null,"Se agregó un auto","Información",JOptionPane.INFORMATION_MESSAGE );
         }
         
         if(e.getSource() == pagregaVehiculor.btMoto){
@@ -176,6 +179,7 @@ public class Controler implements ActionListener{
             else
                 model.agregarTransporte(new Moto(pagregaVehiculor.txPlaca.getText()),
                                         Integer.valueOf(pagregaVehiculor.txEntrada.getText()));
+        JOptionPane.showMessageDialog(null,"Se agregó una moto","Información",JOptionPane.INFORMATION_MESSAGE );
         }
         
         if(e.getSource() == pagregaVehiculor.btCamion){
@@ -186,6 +190,7 @@ public class Controler implements ActionListener{
             else
                 model.agregarTransporte(new Autobus(pagregaVehiculor.txPlaca.getText()),
                                         Integer.valueOf(pagregaVehiculor.txEntrada.getText()));
+        JOptionPane.showMessageDialog(null,"Se agregó un autobus","Información",JOptionPane.INFORMATION_MESSAGE );
         }
         
         if(e.getSource() == pagregaVehiculor.cbUbicacion){
@@ -203,6 +208,7 @@ public class Controler implements ActionListener{
         
         // Eventos del panel cobrar
         if (e.getSource() == pCobrar.btRegresar){
+            view.setSize(360, 250);
             view.MainPanel.removeAll();
             view.MainPanel.add(pOp, BorderLayout.CENTER);
             view.MainPanel.revalidate();

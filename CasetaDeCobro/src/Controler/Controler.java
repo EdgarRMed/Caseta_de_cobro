@@ -23,6 +23,7 @@ import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
+import sun.tools.java.Type;
 
 /**
  * @author Edgar Medina <edgarrmedinalozano at gmail.com>
@@ -61,6 +62,11 @@ public class Controler implements ActionListener {
         pOp = new Pop();
         pSet = new Pset();
         ticket = new FTicket();
+        ticket.txCobro.setEditable(false);
+        ticket.txEntrada.setEditable(false);
+        ticket.txKilometros.setEditable(false);
+        ticket.txPlaca.setEditable(false);
+        ticket.txSalida.setEditable(false);
         // Fin instancia de componentes 
 
         // Se agrea el panel principal al Frame
@@ -272,6 +278,7 @@ public class Controler implements ActionListener {
                 int flag = 0;
                 for (Transporte t : model.transportes) {
                     if (pCobrar.txPlaca.getText().equals(t.getPlaca())) {
+                        ticket.nombreTx.setText(t.nombre);
                         ticket.txPlaca.setText(t.getPlaca());
                         ticket.txEntrada.setText(String.valueOf(t.getEntradaKm()));
                         ticket.txKilometros.setText(String.valueOf(model.tarifa));
@@ -286,6 +293,7 @@ public class Controler implements ActionListener {
                                 throw new FueraDeRangoException();
                             ticket.txCobro.setText(String.valueOf(t.calcularTarifa(model.tarifa, salida)));
                         }
+                        ticket.setLocationRelativeTo(null);
                         ticket.setVisible(true);
 
                         model.transportes.remove(t);

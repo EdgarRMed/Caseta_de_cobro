@@ -6,6 +6,7 @@ import Exceptions.NumeroNegativoException;
 public abstract class Transporte {
     protected int entradaKm;
     protected String placa;
+    public String nombre;
 
     public Transporte(String placa) throws CampoVacioException {
         if (placa.equals(""))

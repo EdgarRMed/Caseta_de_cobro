@@ -6,6 +6,7 @@ import Exceptions.NumeroNegativoException;
 public class Autobus extends Transporte {
     public Autobus(String placa) throws CampoVacioException {
         super(placa);
+        nombre="Autobus";
     }
 
     @Override

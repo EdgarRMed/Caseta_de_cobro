@@ -43,10 +43,10 @@ public class Pcobrar extends javax.swing.JPanel {
 
         lSalida.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lSalida.setForeground(new java.awt.Color(255, 255, 255));
-        lSalida.setText("Ingrese kilometro de salida:");
+        lSalida.setText("Ingrese kilómetro de salida:");
 
         cbUbicacion.setForeground(new java.awt.Color(1, 1, 1));
-        cbUbicacion.setText("Cobobrar en la Ubicación de esta caseta");
+        cbUbicacion.setText("Cobrar en la ubicación de esta caseta");
 
         btRegresar.setText("Cancelar/Regresar");
         btRegresar.addActionListener(new java.awt.event.ActionListener() {

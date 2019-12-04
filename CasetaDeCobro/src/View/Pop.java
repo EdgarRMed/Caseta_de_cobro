@@ -37,7 +37,7 @@ public class Pop extends javax.swing.JPanel {
         lMensaje.setBackground(new java.awt.Color(254, 254, 254));
         lMensaje.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lMensaje.setForeground(new java.awt.Color(255, 255, 255));
-        lMensaje.setText("Eliga alguna acción");
+        lMensaje.setText("Elija alguna acción");
 
         btIngresar.setText("Ingresar vehículo");
         btIngresar.addActionListener(new java.awt.event.ActionListener() {
@@ -46,7 +46,7 @@ public class Pop extends javax.swing.JPanel {
             }
         });
 
-        btCobrar.setText("Cobrar vehiculo");
+        btCobrar.setText("Cobrar vehículo");
         btCobrar.setPreferredSize(new java.awt.Dimension(115, 23));
         btCobrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

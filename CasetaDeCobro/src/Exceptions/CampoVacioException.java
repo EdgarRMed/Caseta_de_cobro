@@ -2,6 +2,6 @@ package Exceptions;
 
 public class CampoVacioException extends Exception {
     public String getMessage() {
-        return "LLene todos los campos";
+        return "Alguno(s) de los campos está(n) vacío(s). Llénelos todos.";
     }
 }

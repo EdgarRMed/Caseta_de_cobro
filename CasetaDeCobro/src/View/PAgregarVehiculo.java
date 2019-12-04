@@ -46,7 +46,7 @@ public class PAgregarVehiculo extends javax.swing.JPanel {
 
         lEntrada.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lEntrada.setForeground(new java.awt.Color(255, 255, 255));
-        lEntrada.setText("Ingrese kilometro de entrada: ");
+        lEntrada.setText("Ingrese kilómetro de entrada: ");
 
         txEntrada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -68,11 +68,11 @@ public class PAgregarVehiculo extends javax.swing.JPanel {
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Camion");
+        jLabel2.setText("Camión");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Automovil");
+        jLabel3.setText("Automóvil");
 
         btRegresar.setText("Cancelar/Regresar");
 

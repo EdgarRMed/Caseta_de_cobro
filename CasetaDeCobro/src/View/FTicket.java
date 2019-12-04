@@ -46,15 +46,15 @@ public class FTicket extends javax.swing.JFrame {
         jPTicket.setBackground(new java.awt.Color(125, 125, 125));
 
         jLabel1.setForeground(new java.awt.Color(254, 254, 254));
-        jLabel1.setText("Tiket de Caseta");
+        jLabel1.setText("Ticket de Caseta");
 
         lbPlaca.setText("Placas del vehículo:");
 
-        lbEntrada.setText("Kilometro de entrada:");
+        lbEntrada.setText("Kilómetro de entrada:");
 
-        lbSalida.setText("Kilometro de salida:");
+        lbSalida.setText("Kilómetro de salida:");
 
-        lbRecorrido.setText("Tarifa por kilometro");
+        lbRecorrido.setText("Tarifa por kilómetro");
 
         lbCobro.setText("Monto a pagar:");
 

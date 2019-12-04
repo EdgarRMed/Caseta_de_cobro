@@ -49,13 +49,13 @@ public class Pset extends javax.swing.JPanel {
         lIcono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/descarga (1).png"))); // NOI18N
 
         lUbicacion.setForeground(new java.awt.Color(254, 254, 254));
-        lUbicacion.setText("Ingrese la úbicacion de la caseta (km):");
+        lUbicacion.setText("Ingrese la ubicación de la caseta (km):");
 
         lLongitud.setForeground(new java.awt.Color(254, 254, 254));
-        lLongitud.setText("Ingrese longitud de carretera(km): ");
+        lLongitud.setText("Ingrese longitud de carretera (km):");
 
         lCombro.setForeground(new java.awt.Color(254, 254, 254));
-        lCombro.setText("Ingrese cobro estandar(pesos):");
+        lCombro.setText("Ingrese cobro estandar (pesos):");
 
         txLongitud.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

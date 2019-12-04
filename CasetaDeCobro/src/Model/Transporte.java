@@ -1,10 +1,15 @@
 package Model;
 
+import Exceptions.CampoVacioException;
+import Exceptions.NumeroNegativoException;
+
 public abstract class Transporte {
     protected int entradaKm;
     protected String placa;
 
-    public Transporte(String placa) {
+    public Transporte(String placa) throws CampoVacioException {
+        if (placa.equals(""))
+            throw new CampoVacioException();
         this.placa = placa;
     }
 
@@ -20,5 +25,5 @@ public abstract class Transporte {
         return entradaKm;
     }
     
-    public abstract double calcularTarifa(double tarifa, int salidaKm);
+    public abstract double calcularTarifa(double tarifa, int salidaKm) throws NumeroNegativoException;
 }
